@@ -8,10 +8,7 @@ class Tag(models.Model):
 
 
 class TaggedItem(models.Model):
-    # What tag is applied to what object
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
-    # Type(product, video, article)
-    # ID
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveBigIntegerField()
+    object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey()
